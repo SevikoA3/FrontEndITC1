@@ -10,8 +10,15 @@ inputForm.forEach((form, index) => {
     })
     
     form.addEventListener('blur', () => {
-        inputLabel[index].style.top = form.value == '' ? '50%' : '25%'
-        inputLabel[index].style.fontSize = form.value == '' ? '1.5rem' : '1rem'
+        if (form.value.trim() == '') {
+            inputLabel[index].style.top = '50%'
+            inputLabel[index].style.fontSize = '1.5rem'
+            form.value = ''
+        }
+        else {
+            inputLabel[index].style.top = '25%'
+            inputLabel[index].style.fontSize = '1rem'
+        }
     })
 })
 
