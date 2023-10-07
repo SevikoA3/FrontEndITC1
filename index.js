@@ -11,8 +11,16 @@ inputForm.forEach((form, index) => {
     
     form.addEventListener('blur', () => {
         if (form.value.trim() == '') {
-            inputLabel[index].style.top = '50%'
-            inputLabel[index].style.fontSize = '1.5rem'
+            let animation = setInterval(frame, 1)
+            function frame() {
+                if (inputLabel[index].style.top == '50%') {
+                    clearInterval(animation)
+                }
+                else {
+                    inputLabel[index].style.top = parseFloat(inputLabel[index].style.top) + 0.5 + '%'
+                    inputLabel[index].style.fontSize = parseFloat(inputLabel[index].style.fontSize) + 0.01 + 'rem'
+                }
+            }
             form.value = ''
         }
         else {
