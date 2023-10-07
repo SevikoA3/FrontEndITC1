@@ -11,8 +11,7 @@ inputForm.forEach((form, index) => {
     
     form.addEventListener('blur', () => {
         if (form.value.trim() == '') {
-            let animation = setInterval(frame)
-            function frame() {
+            let animation = setInterval(() => {
                 if (inputLabel[index].style.top == '50%') {
                     clearInterval(animation)
                 }
@@ -20,7 +19,7 @@ inputForm.forEach((form, index) => {
                     inputLabel[index].style.top = parseFloat(inputLabel[index].style.top) + 0.5 + '%'
                     inputLabel[index].style.fontSize = parseFloat(inputLabel[index].style.fontSize) + 0.01 + 'rem'
                 }
-            }
+            })
             form.value = ''
         }
         else {
