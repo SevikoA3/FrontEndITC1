@@ -11,7 +11,7 @@ inputForm.forEach((form, index) => {
     
     form.addEventListener('blur', () => {
         if (form.value.trim() == '') {
-            let animation = setInterval(frame, 1)
+            let animation = setInterval(frame)
             function frame() {
                 if (inputLabel[index].style.top == '50%') {
                     clearInterval(animation)
